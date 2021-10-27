@@ -16,12 +16,17 @@ public class EchoClient {
             public void run() {
                 String line;
                 BufferedReader in = new BufferedReader(new.InputStreamReader(System.in));
-                while((line = in.readLine()) != null) {
-                    sc.println(line);
-                    //line = in.readLine();
+                try {
+                    while((line = in.readLine()) != null) {
+                        sc.println(line);
+                        //line = in.readLine();
+                    }
+                } catch(IOException e) {
+                    e.printStackTrace();
                 }
                 // close sc for writing
                 in.close();
+                
             } 
         }.start();
           
@@ -29,9 +34,8 @@ public class EchoClient {
         new Thread() {
             public void run() {
                 PrintWriter out = new PrintWriter(sc.getOutputStream(System.out));
-                while() {
+                while((line = in.readLine()) != null) {
                     System.out.println(line);
-                    line = in.readLine();
                 }
                 // close sc for reading
                 out.close();
