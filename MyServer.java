@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 
-public class EchoServer {
+public class MyServer {
 
     public static void main(String[] args) {
         MyServerSocket ss = new MyServerSocket(Integer.parseInt(args[0]));
