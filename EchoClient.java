@@ -33,12 +33,12 @@ public class EchoClient {
         // Output thread
         new Thread() {
             public void run() {
-                PrintWriter out = new PrintWriter(sc.getOutputStream(System.out));
-                while((line = in.readLine()) != null) {
+                //PrintWriter out = new PrintWriter(sc.getOutputStream(System.out));
+                while((line = sc.readLine()) != null) {
                     System.out.println(line);
                 }
                 // close sc for reading
-                out.close();
+                //out.close();
             }
         }.start();
     }
