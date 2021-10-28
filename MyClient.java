@@ -1,9 +1,10 @@
 package ClientTextual;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class MyClient {
 
@@ -15,7 +16,7 @@ public class MyClient {
         new Thread() {
             public void run() {
                 String line;
-                BufferedReader in = new BufferedReader(new.InputStreamReader(System.in));
+                BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
                 try {
                     while((line = in.readLine()) != null) {
                         sc.println(line);
@@ -24,8 +25,12 @@ public class MyClient {
                 } catch(IOException e) {
                     e.printStackTrace();
                 }
-                // close sc for writing
-                in.close();
+                try {
+                    // close sc for writing
+                    in.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(MyClient.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 
             } 
         }.start();
@@ -33,7 +38,7 @@ public class MyClient {
         // Output thread
         new Thread() {
             public void run() {
-                //PrintWriter out = new PrintWriter(sc.getOutputStream(System.out));
+                String line;
                 while((line = sc.readLine()) != null) {
                     System.out.println(line);
                 }
