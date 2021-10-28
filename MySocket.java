@@ -8,25 +8,20 @@ import java.net.SocketAddress;
 
 public class MySocket extends Socket {
     
-    //Socket sc;
-    
-    
-    /*public MySocket(Socket socket) throws IOException {
-        sc = socket;
-    }*/
-    
     public MySocket(String host, int port) throws IOException {
         //sc = new Socket(host, port);
         super(host, port);
     }
     
-    public int readLine() {
-        
-        
+    public String readLine() {
+        InputStream input = getInputStream();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+        return reader.readLine();
     }
     
-    public void println() {
-        
-        
+    public void println(String line) {
+        OutStream output = getOutputStream();
+        PrintWriter printer = new Printwriter(output);
+        writer.println(line);
     }
 }
