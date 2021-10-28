@@ -20,15 +20,13 @@ public class MySocket extends Socket {
         super(host, port);
     }
     
-    /*public void MyConnect(SocketAddress endpoint) throws IOException {
-        super.connect(endpoint);
-    }*/
-    
-    public InputStream MyGetInputStream() throws IOException {
+    public int readLine() {
+        
         
     }
     
-    public OutputStream MyGetOutputStream() {
+    public void println() {
+        
         
     }
 }
