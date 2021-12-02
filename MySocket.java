@@ -17,7 +17,6 @@ public class MySocket {
     public MySocket(String host, int port) {
         try {
             sc = new Socket(host, port);
-            //super(host, port);
         } catch (IOException ex) {
             Logger.getLogger(MySocket.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -35,7 +34,7 @@ public class MySocket {
             line = reader.readLine();
             return line;
         } catch (IOException ex) {
-            System.out.println("error");
+            
         }
         return null;
     }
@@ -62,5 +61,13 @@ public class MySocket {
             Logger.getLogger(MySocket.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+
+    public void close() {
+        try {
+            sc.close();
+        } catch (IOException ex) {
+            Logger.getLogger(MySocket.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
